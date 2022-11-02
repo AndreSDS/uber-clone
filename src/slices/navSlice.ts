@@ -3,7 +3,7 @@ import { Point } from "react-native-google-places-autocomplete";
 import { RootState } from "../store/store";
 
 export interface ILocation {
-  location: Point | undefined;
+  location: Point | undefined | null;
   description: string;
 }
 
@@ -15,11 +15,11 @@ export interface NavState {
 
 const initialState: NavState = {
   origin: {
-    location: undefined,
-    description: "",
+    location: null,
+    description: '',
   },
   destination: {
-    location: undefined,
+    location: null,
     description: "",
   },
   travelTimeInformation: null,
@@ -43,5 +43,3 @@ export const navSlice = createSlice({
 
 export const { setOrigin, setDestination, setTravelTimeInformation } =
   navSlice.actions;
-
-export const selectOrigin = (state: RootState) => state.nav.origin;

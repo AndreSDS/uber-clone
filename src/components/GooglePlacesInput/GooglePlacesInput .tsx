@@ -4,13 +4,6 @@ import {
   GooglePlacesAutocomplete,
 } from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_API_KEY } from "@env";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  setOrigin,
-  setDestination,
-  setTravelTimeInformation,
-} from "../../slices/navSlice";
-import type { RootState } from "../../store/store";
 
 interface GooglePlacesInputProps {
   placeholder: string;

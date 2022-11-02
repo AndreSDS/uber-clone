@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { StyleSheet, Text, View } from "react-native";
 import tw from "tailwind-react-native-classnames";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { useNavSelector } from "../../store/store";
 import MapView, { Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_MAPS_API_KEY } from "@env";
@@ -12,7 +10,7 @@ export const Map = () => {
   const {
     origin: { location: origLocation, description: origDescription },
     destination: { location: destLocation, description: destDescription },
-  } = useSelector((state: RootState) => state.nav);
+  } = useNavSelector((state) => state.nav);
 
   useEffect(() => {
     if (!origLocation || !destLocation) return;

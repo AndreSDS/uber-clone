@@ -7,8 +7,7 @@ import {
 } from "@react-navigation/native";
 import tw from "tailwind-react-native-classnames";
 import { Icon } from "@rneui/themed";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import {useNavSelector } from "../../store/store";
 
 const data = [
   {
@@ -26,7 +25,7 @@ const data = [
 ];
 
 export const NavOptions = () => {
-  const { origin } = useSelector((state: RootState) => state.nav);
+  const { origin } = useNavSelector((state) => state.nav);
   const { navigate } = useNavigation<NavigationProp<ParamListBase>>();
 
   return (

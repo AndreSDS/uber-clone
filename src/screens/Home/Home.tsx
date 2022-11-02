@@ -1,19 +1,18 @@
 import { Image, SafeAreaView, Text, View } from "react-native";
 import { useBearStore } from "../../store/BearStore";
 import tw from "tailwind-react-native-classnames";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   GooglePlaceData,
   GooglePlaceDetail,
-  GooglePlacesAutocomplete,
 } from "react-native-google-places-autocomplete";
 import { NavOptions } from "../../components/NavOptions/NavOptions";
 import { GooglePlacesInput } from "../../components/GooglePlacesInput/GooglePlacesInput ";
-import { RootState } from "../../store/store";
+import { RootState, useNavSelector } from "../../store/store";
 import { ILocation, setDestination, setOrigin } from "../../slices/navSlice";
 
 export const Home = () => {
-  const { origin } = useSelector((state: RootState) => state.nav);
+  const { origin } = useNavSelector((state: RootState) => state.nav);
   const dispatch = useDispatch();
 
   const handlePress = (
@@ -54,8 +53,6 @@ export const Home = () => {
         />
 
         <NavOptions />
-
-        <Text>{origin.description}</Text>
       </View>
     </SafeAreaView>
   );
