@@ -10,6 +10,7 @@ import { NavOptions } from "../../components/NavOptions/NavOptions";
 import { GooglePlacesInput } from "../../components/GooglePlacesInput/GooglePlacesInput ";
 import { RootState, useNavSelector } from "../../store/store";
 import { ILocation, setDestination, setOrigin } from "../../slices/navSlice";
+import { NavFavourites } from "../../components/NavFavourites/NavFavourites";
 
 export const Home = () => {
   const { origin } = useNavSelector((state: RootState) => state.nav);
@@ -53,6 +54,7 @@ export const Home = () => {
         />
 
         <NavOptions />
+        <NavFavourites />
       </View>
     </SafeAreaView>
   );
